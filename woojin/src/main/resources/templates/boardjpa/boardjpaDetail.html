@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판 상세</title>
+<link rel="stylesheet" th:href="@{/css/style.css}"></link>
+</head>
+<body>
+	<div class="container">
+		<h2>게시판 상세</h2>
+
+		<form id="frm" name="frm" method="post" enctype="multipart/form-data" th:action="'/boardjpa/boardjpaUpdate/' + ${boardjpa.idx} + '/'+ ${boardjpa.hitCnt}">
+			<table class="board_detail">
+				<tr>
+					<td>글 번호</td>
+					<td><input type="text" id="idx" name="idx" th:value="${boardjpa.idx}" disabled='disabled'/></td>
+				</tr>
+				<tr>
+					<td>제목</td>
+					<td><input type="text" id="title" name="title" th:value="${boardjpa.title}"/></td>
+				</tr>
+				<tr>
+					<td>조회수</td>
+					<td><input type="text" id="hitCnt" name="hitCnt" th:value="${boardjpa.hitCnt}" disabled='disabled'/></td>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td><input type="text" id="createId" name="createId" th:value="${boardjpa.createId}" /></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><input type="text" id="contents" name="contents" th:value="${boardjpa.contents}"  /></td>
+				</tr>
+			</table>
+			<input type="submit" id="submit" value="수정" class="btn" />
+			<button>
+				<a th:href="'/boardjpa/boardjpaDelete/' + ${boardjpa.idx}">삭제</a>
+			</button>
+			<button>
+				<a href="/boardjpa/boardjpaList">리스트</a>
+			</button>
+		</form>
+		
+	</div>
+
+</body>
+</html>
